@@ -31,7 +31,11 @@ def get_aggregate_positions(info=None):
 
     """
     url = aggregate_url()
-    data = request_get(url, 'pagination')
+    datatype = 'results'
+    if info in ['pagination', 'results']:
+        datatype = info
+        info = None
+    data = request_get(url, datatype)
     return(filter_data(data, info))
 
 
@@ -46,7 +50,11 @@ def get_market_options(info=None):
 
     """
     url = option_orders_url()
-    data = request_get(url, 'pagination')
+    datatype = 'results'
+    if info in ['pagination', 'results']:
+        datatype = info
+        info = None
+    data = request_get(url, datatype)
 
     return(filter_data(data, info))
 
@@ -62,7 +70,11 @@ def get_all_option_positions(info=None):
 
     """
     url = option_positions_url()
-    data = request_get(url, 'pagination')
+    datatype = 'results'
+    if info in ['pagination', 'results']:
+        datatype = info
+        info = None
+    data = request_get(url, datatype)
     return(filter_data(data, info))
 
 
@@ -78,7 +90,13 @@ def get_open_option_positions(info=None):
     """
     url = option_positions_url()
     payload = {'nonzero': 'True'}
-    data = request_get(url, 'pagination', payload)
+
+    datatype = 'results'
+    if info in ['pagination', 'results']:
+        datatype = info
+        info = None
+
+    data = request_get(url, datatype, payload)
 
     return(filter_data(data, info))
 
