@@ -33,7 +33,11 @@ def get_all_option_orders(info=None):
 
     """
     url = option_orders_url()
-    data = request_get(url, 'pagination')
+    datatype = 'results'
+    if info in ['pagination', 'results']:
+        datatype = info
+        info = None
+    data = request_get(url, datatype)
     return(filter_data(data, info))
 
 
@@ -81,7 +85,11 @@ def get_all_open_option_orders(info=None):
 
     """
     url = option_orders_url()
-    data = request_get(url, 'pagination')
+    datatype = 'results'
+    if info in ['pagination', 'results']:
+        datatype = info
+        info = None
+    data = request_get(url, datatype)
 
     data = [item for item in data if item['cancel_url'] is not None]
 
