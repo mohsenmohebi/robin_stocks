@@ -6,13 +6,13 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
-setup(name='robin_stocks',
+setup(name='robin_stocks_custom',
       version='2.1.0',
       description='A Python wrapper around the Robinhood API',
       long_description=long_description,
       long_description_content_type='text/x-rst',
-      url='https://github.com/jmfernandes/robin_stocks',
-      author='Josh Fernandes',
+      url='https://github.com/mohsenmohebi/robin_stocks/',
+      author='Fork from Josh Fernandes',
       author_email='joshfernandes@mac.com',
       keywords=['robinhood','robin stocks','finance app','stocks','options','trading','investing'],
       license='MIT',
